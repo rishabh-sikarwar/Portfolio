@@ -12,6 +12,8 @@ html, body {
   background-color: #121212;  /* Dark background color */
   color: #e0e0e0;  /* Light text color */
   font-size: 16px;
+  @apply scroll-smooth;
+  scroll-behavior: smooth;
 }
 #main{
     perspective: 1000px

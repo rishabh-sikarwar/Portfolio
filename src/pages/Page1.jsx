@@ -32,18 +32,21 @@ const Page1 = () => {
 
 
   return (
-
     <>
       <div
         onMouseMove={(e) => mouseMoving(e)}
-        className=" relative h-screen bg-red-200 p-6"
+        className=" relative h-screen bg-red-200 p-6 "
       >
-        <div id="page1-in" className=" relative h-full w-full bg-[url(./assets/backgroundimage.png)] rounded-[50px] bg-cover shadow-gray-700 shadow-xl p-20">
-          <img
-            src={circleimage}
-            alt="circle"
-            className="w-16 h-16 absolute top-10 left-1  ml-10 z-10"
+        <div className="absolute inset-0 rounded-[50px] overflow-hidden shadow-red-950 m-8 shadow-2xl">
+          <video
+            src="/src/assets/stars.mp4"
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover"
           />
+        </div>
+        <div id="page1-in" className=" relative h-full w-full p-20">
           <TiltText abc={tiltRef} />
           <Page1Bottom />
         </div>

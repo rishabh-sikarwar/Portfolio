@@ -5,7 +5,7 @@ const TiltText = (props) => {
     <div
       id="tiltDiv"
       ref={props.abc}
-      className="text-white uppercase font-bold mt-30 mx-10 text-xl mt-24"
+      className=" text-white z-10 uppercase font-bold mt-30 mx-10 text-xl mt-24"
     >
       <h1 className="text-[4.3vw] font-[anzo1] leading-[4vw] ">
         {" "}
