@@ -1,7 +1,7 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Page2 = () => {
 
@@ -22,6 +22,57 @@ const Page2 = () => {
             }
         })
     })
+  
+  const animation = () => {
+    const canvas = document.querySelector('canvas')
+    const context = canvas.getContext('2d')
+    const imagePaths = Array.from({ length: 137 }, (elem, idx) => {
+      // Pad the index with leading zeros to match 'frame-001', 'frame-002', ..., 'frame-137'
+      const paddedIndex = String(idx + 1).padStart(3, "0"); // Pad with leading zeros to ensure 3 digits
+      return `/src/assets/frames/ezgif-frame-${paddedIndex}.jpg`; // Adjust the path to match your filenames
+    });
+
+    const images = []
+    let loadedImagesCount = 0;  // Track how many images are loaded
+    imagePaths.forEach((path, idx) => {
+      const img = new Image()
+      img.src = path
+     
+      
+      img.onload = () => images.push(img)
+      //console.log(images[idx]); // Debugging*************************************************************
+      
+    })
+
+    let currentFrame = 0
+    let lastFrame = 0
+    const loopImageSequence = (timestamps) => {
+      if (images.length == 137 && timestamps - lastFrame >= 1000/30) {
+        //console.log("isLoaded");      //this will give my frame rate also
+        
+        context.clearRect(0, 0, canvas.width, canvas.height)
+        //console.log('canvas cleared');//debugging********************************************************
+        //console.log(images[100])//debugging********************************************************  ;
+        
+        
+        context.drawImage(images[currentFrame], 0, 0, canvas.width, canvas.height)
+        
+        currentFrame = (currentFrame + 1) % 137
+        lastFrame = timestamps
+
+      }
+        
+      
+      requestAnimationFrame(loopImageSequence)
+    }    
+    requestAnimationFrame(loopImageSequence)
+  }
+
+  useEffect(() => {
+    animation()
+  },[])
+  
+  
   return (
     <div
       id="section2"
@@ -46,6 +97,7 @@ const Page2 = () => {
         <h1 className="text-[42vw] font-[anzo12] text-black">THAT</h1>
       </div>
       <div className="h1 relative bg-white">
+        <canvas className='h-full w-[90%] left-1/2 -translate-x-1/2 -translate-y-8 absolute z-0'></canvas>
         <h1 className="text-[42vw] font-[anzo12] text-black">WORKS!</h1>
       </div>
       <div className='flex justify-center items-center scale-75 mt-24'>
