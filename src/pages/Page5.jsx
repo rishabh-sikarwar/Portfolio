@@ -1,11 +1,12 @@
 import React from "react";
+import moon from '../assets/moon.mp4'
 
 const Page5 = () => {
   return (
     <div className="h-screen relative p-10 bg-white">
       <div className="h-full w-full bg-black rounded-[50px] flex items-center justify-center overflow-hidden">
         <video
-          src="/src/assets/moon.mp4"
+          src={moon}
           autoPlay
           loop
           muted
