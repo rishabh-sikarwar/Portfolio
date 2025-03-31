@@ -1,6 +1,4 @@
 import React from "react";
-import mern from "../assets/mern.png";
-import engineerlogo from "../assets/engineerlogo.png";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -33,12 +31,12 @@ const Page1Bottom = () => {
         className="flex flex-row items-center gap-6 sm:gap-8 mt-6 md:mt-0 md:flex-col "
       >
         <img
-          src={mern}
+          src="https://res.cloudinary.com/dsrx8ljlr/image/upload/v1743395953/assets/oti7ieah3tbc94qjyq36.png"
           alt="mern"
           className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover"
         />
         <img
-          src={engineerlogo}
+          src="https://res.cloudinary.com/dsrx8ljlr/image/upload/v1743395950/assets/uovbpqerlwyi5ifypasb.png"
           alt="engineer"
           className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover"
         />

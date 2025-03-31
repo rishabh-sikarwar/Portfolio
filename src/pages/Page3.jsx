@@ -1,6 +1,4 @@
 import React from "react";
-import video from "../assets/intro.mp4";
-import image from "../assets/laptop.png";
 
 const Page3 = () => {
   return (
@@ -16,7 +14,7 @@ const Page3 = () => {
         className="relative w-[90%] max-w-[900px] md:max-w-[1000px] lg:max-w-[1200px] 
                    bg-no-repeat bg-contain bg-center flex justify-center items-center z-10"
         style={{
-          backgroundImage: `url(${image})`,
+          backgroundImage: `url(${"https://res.cloudinary.com/dsrx8ljlr/image/upload/v1743395952/assets/t36ackx1yfsoziduaezo.png"})`,
           aspectRatio: "16/10",
           zIndex: 10,
         }}
@@ -33,7 +31,7 @@ const Page3 = () => {
           }}
         >
           <video
-            src={video}
+            src="https://res.cloudinary.com/dsrx8ljlr/video/upload/v1743395955/assets/pj5sxnbba7p7szcmgbvg.mp4"
             autoPlay
             loop
             muted

@@ -1,7 +1,6 @@
 import React, { use, useRef, useState } from "react";
 import TiltText from "../components/TiltText";
 import Page1Bottom from "../components/Page1Bottom";
-import backgroundVideo from "../assets/stars.mp4";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -40,11 +39,11 @@ const Page1 = () => {
     <>
       <div
         onMouseMove={(e) => mouseMoving(e)}
-        className=" relative h-screen bg-red-200 p-6 "
+        className=" relative h-screen bg-gray-900 p-6 "
       >
-        <div className="absolute inset-0 rounded-[50px] overflow-hidden shadow-red-950 m-8 shadow-2xl">
+        <div className="absolute inset-0 rounded-[50px] overflow-hidden shadow-red-950 m-3 shadow-2xl">
           <video
-            src={backgroundVideo}
+            src="https://res.cloudinary.com/dsrx8ljlr/video/upload/v1743395954/assets/krd52fb2bpveow6my4wl.mp4"
             autoPlay
             loop
             muted
