@@ -76,7 +76,7 @@ const FeedbackModel = () => {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button
-          className="bg-gradient-to-r from-green-500 to-blue-500 px-6 py-3 rounded-full text-white border-4 text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+          className="bg-gradient-to-r from-green-500 to-blue-500 px-6 py-3 mt-5 rounded-full text-white border-4 text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           onClick={() => setIsOpen(true)}
         >
           Give Feedback

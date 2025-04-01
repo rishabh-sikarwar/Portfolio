@@ -1,46 +1,61 @@
-import React from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import React , {useState, useEffect} from "react";
 
 const Page1Bottom = () => {
-  useGSAP(() => {
-    gsap.to("#banner img", {
-      rotate: 360,
-      duration: 3,
-      repeat: -1,
-      ease: "linear",
-      transformOrigin: "center center",
-    });
-  });
+  const [typedText, setTypedText] = useState("");
+  const [displayText, setDisplayText] = useState("");
+  const [typingSpeed, setTypingSpeed] = useState(100); // Adjust typing speed here
+  const [textIndex, setTextIndex] = useState(0);
+  const [isReversing, setIsReversing] = useState(false);
+  const texts = [
+    "Merging creativity with code.",
+    "Delivering seamless user experiences.",
+    "Building innovative solutions.",
+    "Crafting digital masterpieces.",
+  ];
+
+  useEffect(() => {
+    let timeout;
+
+    if (!isReversing) {
+      if (typedText.length < texts[textIndex].length) {
+        timeout = setTimeout(() => {
+          setTypedText(texts[textIndex].substring(0, typedText.length + 1));
+        }, typingSpeed);
+      } else if (displayText !== texts[textIndex]) {
+        timeout = setTimeout(() => {
+          setDisplayText(texts[textIndex]);
+        }, 1000); // speed of typing .
+      } else {
+        timeout = setTimeout(() => {
+          setIsReversing(true); // Start reversing
+          setDisplayText("");
+        }, 500); // Wait for half a seconds before reversing.
+      }
+    } else {
+      if (typedText.length > 0) {
+        timeout = setTimeout(() => {
+          setTypedText(typedText.substring(0, typedText.length - 1));
+        }, typingSpeed / 2); // Reverse faster
+      } else {
+        timeout = setTimeout(() => {
+          setIsReversing(false);
+          setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
+        }, 500); // Small delay before next type
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [typedText, displayText, textIndex, texts, typingSpeed, isReversing]);
 
   return (
-    <div className="mb-10 absolute bottom-0 left-0 px-6 sm:px-12 md:px-20 pt-20 flex flex-col md:flex-row items-center justify-between w-full text-white">
-      {/* Left Side Text (Hidden on Small Screens) */}
-      <div className="hidden md:block">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif">
-          BRAND DESIGN | WEBSITE DESIGN
-        </h2>
-        <h3 className="text-lg sm:text-2xl md:text-3xl text-gray-400 font-serif">
-          BESPOKE FREELANCE
-        </h3>
-      </div>
+    <div className="text-white text-3xl text-center mt-10">
+      <h2>
+      {typedText || displayText}
 
-      {/* Rotating Circular Logos (Always Visible) */}
-      <div
-        id="banner"
-        className="flex flex-row items-center gap-6 sm:gap-8 mt-6 md:mt-0 md:flex-col "
-      >
-        <img
-          src="https://res.cloudinary.com/dsrx8ljlr/image/upload/v1743395953/assets/oti7ieah3tbc94qjyq36.png"
-          alt="mern"
-          className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover"
-        />
-        <img
-          src="https://res.cloudinary.com/dsrx8ljlr/image/upload/v1743395950/assets/uovbpqerlwyi5ifypasb.png"
-          alt="engineer"
-          className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover"
-        />
-      </div>
+      <span className="inline-block w-1 bg-white ml-1 animate-pulse">
+        &nbsp;
+      </span>
+      </h2>
     </div>
   );
 };

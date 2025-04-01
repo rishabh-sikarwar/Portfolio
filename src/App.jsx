@@ -1,29 +1,46 @@
-import React from 'react'
-import Header from './components/Header'
-import Page1 from './pages/Page1'
-import Page2 from './pages/Page2';
-import Page3 from './pages/Page3';
-import Page4 from './pages/Page4';
-import Page5 from './pages/Page5';
-import Page6 from './pages/Page6';
-import Footer from './components/Footer';
+import React from "react";
+import Header from "./components/Header";
+import Page1 from "./pages/Page1";
+import Page2 from "./pages/Page2";
+import Page3 from "./pages/Page3";
+import Page4 from "./pages/Page4";
+import Page5 from "./pages/Page5";
+import Page6 from "./pages/Page6";
+import Page7 from "./pages/Page7";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <>
-        <Header />
+      <Header />
       <div id="main">
-        <Page1 />
-        <Page2 />
+        <div id="home">
+          <Page1 />
+        </div>
+        <div id="">
+          <Page2 />
+        </div>
+        <div id="about">
+          <Page6 />
+        </div>
+
         <Page3 />
-        <Page5 />
-        <Page6/>
-        <Page4 />
-        <Footer/>
-        
+
+        <div id="tools">
+          <Page5 />
+        </div>
+        <div id="work">
+          <Page4 />
+        </div>
+
+        <div id="contact">
+          <Page7 />
+        </div>
+
+        <Footer />
       </div>
     </>
   );
-}
+};
 
-export default App
+export default App;
