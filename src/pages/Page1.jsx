@@ -39,10 +39,10 @@ const Page1 = () => {
     <>
       <div
         onMouseMove={(e) => mouseMoving(e)}
-        className=" relative h-screen bg-gray-900 p-6 "
+        className="relative h-screen  p-6"
       >
-        <div className="absolute inset-0 rounded-[50px] overflow-hidden bg-gradient-to-b from-blue-800 via-blue-300 to-blue-200 shadow-[#8ab4f1] m-3 shadow-xl "></div>
-        <div id="page1-in" className=" relative h-full w-full p-3 md:p-20">
+        <div className="absolute inset-0 rounded-[50px] overflow-hidden bg-gradient-to-b from-[#111827] via-[#1f2937] to-[#374151] shadow-[#8ab4f1] m-3 shadow-xl"></div>
+        <div id="page1-in" className="relative h-full w-full p-3 md:p-20">
           <TiltText abc={tiltRef} />
           <Page1Bottom />
         </div>

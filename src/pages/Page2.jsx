@@ -10,33 +10,36 @@ const Page2 = () => {
   useGSAP(() => {
     textRefs.current.forEach((el, index) => {
       gsap.from(el, {
-        transform: "rotateX(-80deg)",
+        transform: window.innerWidth > 768 ? "rotateX(-60deg)" : "none",
         opacity: 0,
-        duration: 1,
+        duration: 0.8,
         ease: "power2.out",
-        delay: index * 0.2,
-        scrollTrigger: {
-          trigger: el,
-          start: "top 70%",
-          end: "top 10%",
-          scrub: 1,
-        },
+        delay: index * 0.15,
+        scrollTrigger:
+          window.innerWidth > 768
+            ? {
+                trigger: el,
+                start: "top 90%",
+                end: "top 40%",
+                scrub: 0.5,
+              }
+            : null,
       });
     });
   }, []);
 
   return (
-    <div id="section2" className="bg-white text-black text-center py-20 px-4">
+    <div id="section2" className="text-white text-center py-20 px-4">
       {/* Massive Text for Maximum Impact */}
       {["CODE!", "CREATE!", "INNOVATE!"].map((word, index) => (
         <div
           key={index}
           ref={(el) => (textRefs.current[index] = el)}
-          className="h1 mt-20"
+          className="h1 mt-16"
         >
           <h1
-            className="text-[40vw] sm:text-[36vw] md:text-[30vw] lg:text-[28vw] 
-                      font-bold text-black leading-none tracking-tight font-[anzo123456] "
+            className="text-[12vw] sm:text-[15vw] md:text-[16vw] lg:text-[20vw] xl:text-[5vw] 2xl:text-[4vw] 
+                      font-extrabold text-white leading-none tracking-wide uppercase font-sans"
           >
             {word}
           </h1>
@@ -44,7 +47,7 @@ const Page2 = () => {
       ))}
 
       {/* Bottom Line */}
-      <div className="h-2 w-5/6 sm:w-3/4 bg-black relative left-1/2 -translate-x-1/2 mt-16"></div>
+      <div className="h-1 w-5/6 sm:w-3/4 bg-black relative left-1/2 -translate-x-1/2 mt-12"></div>
     </div>
   );
 };

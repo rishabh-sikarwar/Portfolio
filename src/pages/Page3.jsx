@@ -2,7 +2,7 @@ import React from "react";
 
 const Page3 = () => {
   return (
-    <div className="relative h-screen bg-[#f3f3f3] flex items-center justify-center px-4">
+    <div className="relative h-screen  flex items-center justify-center px-4">
       <div className="absolute w-full flex flex-col items-center z-0 p-52">
         <div className="h-[1px] w-[50%] bg-black absolute top-[30%]  "></div>
         <div className="h-[1px] w-[67%] bg-black absolute top-[50%] "></div>

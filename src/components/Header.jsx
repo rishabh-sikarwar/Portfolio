@@ -12,10 +12,12 @@ const Header = () => {
   return (
     <>
       {/* Fixed Navbar */}
-      <div className="fixed top-0 left-0 w-full z-50 text-white px-5 py-4 flex justify-center md:justify-center items-center">
+      <div className="fixed top-0 left-0 w-full z-50 text-white px-5 py-4 flex justify-between items-center md:justify-center">
         {/* Navigation Links */}
-        <nav className="flex md:gap-10 gap-4 py-2 px-1 uppercase font-bold items-center flex-col md:justify-center bg-opacity-10 backdrop-blur md:px-6 md:py-3 md:rounded-full rounded-lg bg-[#212121] 
-                        md:flex-row md:top-auto top-4 left-4 absolute md:relative">
+        <nav
+          className="flex md:gap-10 gap-4 py-2 px-1 uppercase font-bold items-center flex-col md:justify-center bg-opacity-10 backdrop-blur md:px-6 md:py-3 md:rounded-full rounded-lg bg-[#212121]
+                                    md:flex-row md:top-auto top-4 left-4 absolute md:relative"
+        >
           <a
             href="#home"
             onClick={(e) => {
@@ -68,10 +70,7 @@ const Header = () => {
           </a>
         </nav>
 
-        {/* Feedback Button */}
-        <div className="absolute right-4 top-4 md:right-5 md:top-4">
-          <FeedbackModel />
-        </div>
+      
       </div>
     </>
   );

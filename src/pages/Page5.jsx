@@ -2,7 +2,7 @@ import React from "react";
 
 const Page5 = () => {
   return (
-    <div className="h-screen relative p-10 bg-white">
+    <div className="h-screen relative p-10">
       <div className="h-full w-full bg-black rounded-[50px] flex flex-col md:flex-row items-center justify-between overflow-hidden relative">
         {/* Video Background */}
         <video

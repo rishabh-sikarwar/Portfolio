@@ -14,30 +14,32 @@ const App = () => {
     <>
       <Header />
       <div id="main">
-        <div id="home">
-          <Page1 />
-        </div>
-        <div id="">
+        <div className="bg-[#0a0a0a]">
+          <div id="home">
+            <Page1 />
+          </div>
+              
           <Page2 />
-        </div>
-        <div id="about">
-          <Page6 />
-        </div>
 
-        <Page3 />
+          <div id="about">
+            <Page6 />
+          </div>
 
-        <div id="tools">
-          <Page5 />
-        </div>
-        <div id="work">
-          <Page4 />
-        </div>
+          <Page3 />
 
-        <div id="contact">
-          <Page7 />
-        </div>
+          <div id="tools">
+            <Page5 />
+          </div>
+          <div id="work">
+            <Page4 />
+          </div>
 
-        <Footer />
+          <div id="contact">
+            <Page7 />
+          </div>
+
+          <Footer />
+        </div>
       </div>
     </>
   );
